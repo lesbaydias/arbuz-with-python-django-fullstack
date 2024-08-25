@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'landing/AdminUser.css' %}" rel="stylesheet">
+
+    <title>AdminUser</title>
+</head>
+<body>
+    <h1>Welcome to Admin Page!</h1>
+    <h2>Category</h2>
+    <div class="container">
+        <a href="/insert"> <button>Insert items</button></a>
+        <br>
+        <a href="/all"><button>See all items</button></a>
+        <a href="/allEdit"><button>Update and Delete items</button></a>
+        <a href="/insertUsers"><button>Insert Users</button></a>
+        <a href="/allUsers"><button>See all Users</button></a>
+        <a href="/UU"><button>Delete Users</button></a>
+    </div>
+    
+
+</body>
+</html>

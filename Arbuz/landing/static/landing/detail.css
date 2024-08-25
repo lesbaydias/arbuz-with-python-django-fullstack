@@ -1,0 +1,35 @@
+.double{
+    font-size: 16px;
+    color:  rgba(0,0,0,.4);
+    font-family: Roboto, serif;
+}
+.form > .add_basket{
+    background-color: #3b71ca;
+    width: 40%;
+    border: #3b71ca solid 1px;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    font-family: "Segoe UI Black", serif;
+}
+.form{
+    width: 14%;
+    margin: auto;
+    text-align: center;
+}
+.back_button{
+    text-align: center;
+    margin-top: 4px;
+}
+.back_button >a > button{
+    background-color: orange;
+    width: 5.6%;
+    border: orange solid 1px;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    font-family: "Segoe UI Black", serif;
+}
+.back{
+    background-color: red;
+}

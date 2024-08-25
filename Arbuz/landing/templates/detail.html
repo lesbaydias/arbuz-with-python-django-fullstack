@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="../static/landing/detail.css" rel="stylesheet">
+
+    <div class="grid-container">
+        <a class="a">
+            <div class="itemss">
+                <img class="img" src="{{ data.image_field.url }}" >
+                <h5><p class="text-center">{{ data.name }}</p></h5>
+                <div class="double">{{ data.category }} , {{ data.country }}</div>
+                <strong class="strong">{{ data.price }} ₸</strong>
+            </div>
+        </a>
+    </div>
+    {% if user.is_authenticated %}
+    <form action="" method="get" class="form">
+        {% if first %}
+        <button name="first" onclick="update_basket({{data.id}}, 'add', 'detail');" type="submit" class="add_basket">Add to basket</button>
+        {% else %}
+        <div class="d-flex mb-4" style="max-width: 300px">
+                  <button type="submit" class="btn btn-primary px-3 me-2"
+                    onclick="update_basket({{ data.id }}, 'remove', 'basket')">
+                    <i class="fas fa-minus"></i>
+                  </button>
+
+                  <div class="form-outline">
+                    <input id="form1" min="0" name="quantity" value="{{ num }}" type="number" class="form-control" readonly >
+                  </div>
+
+                  <button type="submit" class="btn btn-primary px-3 ms-2"
+                    onclick="update_basket({{ data.id }}, 'add', 'basket')">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+        {% endif %}
+    </form>
+
+    {% endif %}
+    <div class="back_button"><a href="/home" class="back"><button>Go back</button></a></div>
+
+</div>
+{% endblock %}

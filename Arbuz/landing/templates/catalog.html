@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <h1 style="font-family: Arial">{{name}}</h1>
+        <div class="grid-container">
+            {% for data in items %}
+                <a href="{% url 'detail' data.pk %}" class="a">
+                    <div class="itemss">
+                        <img class="img" src="{{ data.image_field.url }}">
+                        <h5><p class="text-center">{{ data.name }}</p></h5>
+                        <strong class="strong">{{ data.price }} ₸</strong>
+                    </div>
+                </a>
+             {%endfor %}
+        </div>
+{% endblock %}

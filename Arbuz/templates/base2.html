@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+{% block content %}
+{% endblock %}
+{% block extra_js %}{% endblock %}
+</body>
+</html>

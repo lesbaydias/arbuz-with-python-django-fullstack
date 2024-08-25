@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'basket.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+
+    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="{% static 'basket.js' %}"></script>
+  <link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Business Site</title>
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-white" id="head">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"  id="logo" ><img src="{%static 'landing/onim.png'%}" style="
+width: 130px; height: 60px; margin-top: -5px"></a>
+        <button id="Menu" type="button">&#9776;</button>
+
+        <div class="collapse navbar-collapse" id="mynavbar">
+        <form class="d-flex" id="header" action="/search_books">
+            <input  class="form-control me-2" type="text" placeholder="Search something..." id="search" name="name">
+            {% if user.is_authenticated %}
+            <a href="{% url 'map' %}" style="text-decoration: none"><button class="btn" type="button" id="location"><span>&#9992;</span>{{request.session.region}}, {{request.session.country}}</button></a>
+                <button class="btn btn" type="button" id="username" ><a href="{% url 'profile' %}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> {{  user.username }}</a></button>
+                <button class="btn btn" type="button" id="basket"><a href="{% url 'basket' %}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Basket</a></button>
+                <button class="btn btn" type="button" id="signout"><a href="{% url 'signout' %}" ><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a></button>
+            {% else  %}
+                <button class="btn btn" type="button" id="login" ><a href="{% url 'log_in' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> sign in</a></button>
+                <button class="btn btn" type="button" id="signup"><a href="{% url 'signup' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up </a></button>
+            {% endif %}
+        </form>
+        </div>
+        </div>
+    </nav>
+</header>
+{% block content %}{% endblock %}
+<footer>
+<div class="container">
+  <table>
+        <tr>
+        <td>Mobile phone</td>
+        <td>Delivery</td>
+        <td>FAQ</td>
+        <td>Vacancy</td>
+        <td><a href="#" class="fa fa-facebook"></a></td>
+      </tr>
+      <tr>
+        <td>Almaty city</td>
+        <td>  Follow   Friend</td>
+          <td>Ceil</td>
+          <td>About Us</td>
+        <td><a href="#" class="fa fa-instagram"></a></td>
+      </tr>
+      <tr>
+        <td class="public">+7 (747) 386 89 03</td>
+          <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="#" class="fa fa-whatsapp"></a></td>
+      </tr>
+      <tr>
+        <td class="public">+7 (700) 606 69 96</td>
+        <td><img src="https://arbuz.kz/static/platform/frontend/assets/en/landing/appstore-badge-ru.svg"><img style="width: 122px; height: 44px; margin-left: 25px" src="https://arbuz.kz/static/platform/frontend/assets/landing/google-play-badge.png"></td>
+        <td></td>
+        <td></td>
+        <td><a href="#" class="fa fa-twitter"></a></td>
+      </tr>
+    <tr>
+        <td class="public">help@onim.kz</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="#" class="fa fa-youtube"></a></td>
+    </tr>
+  </table>
+</div>
+    <hr>
+    <h3>© 2023. All rights reserved. <span class="public">Public offer</span></h3>
+</footer>
+
+
+
+</body>
+</html>

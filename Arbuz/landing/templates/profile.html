@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link href="../static/landing/profile.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+{% block content %}
+
+    <div class="container">
+        <div class="item">
+            <div class="strong"><strong class="header">Information</strong></div>
+            <div class="p">
+                <div><i class="fa fa-user" aria-hidden="true"></i> Username:  <strong class="data">{{ request.user.username }} </strong></div><br>
+                    <div><i class='fas fa-address-card'></i> Name:  <strong class="data">{{ request.user.first_name }}</strong></div><br>
+                    <div><i class='far fa-address-card'></i> Surname:  <strong class="data">{{ request.user.last_name}}</strong></div><br>
+                    <div><i class="fa fa-envelope" aria-hidden="true"></i> Email:  <strong class="data">{{ request.user.email }}</strong></div><br>
+                    <div><i class="fa fa-database" aria-hidden="true"></i> Date Joined:  <strong class="data">{{ request.user.date_joined }} </strong></div><br>
+                    <div><i class='fas fa-user-check'></i> Last Login:  <strong class="data">{{ request.user.last_login }}</strong></div><br>
+            </div>
+            <div class="buttons_container">
+                <div><a href="{% url 'editProfile' request.user.pk %}"><button class="buttons"><i class="fas fa-edit"></i> Edit profile</button></a></div>
+                <div><a href="{% url 'editPassword' request.user.pk %}"><button class="buttons"><i class='fas fa-lock'></i> Change password</button></a><br></div>
+            </div>
+        </div>
+        {% if datas %}
+        <div class="item">
+            <div class="strong"><strong class="header">Your bank Account</strong></div>
+            <div class="p">
+                <div><i class='fas fa-address-card'></i> Card name: <strong class="data">{{ datas.cardholder_name }}</strong></div><br>
+                <div><i class="fa fa-credit-card"></i> Card number: <strong class="data">{{ datas.card_number }}</strong></div><br>
+                    <div><i class="fas fa-hourglass-end"></i> Expiration year: <strong class="data">{{ datas.expiration_year }}</strong></div><br>
+                    <div><i class="fa fa-calendar" aria-hidden="true"></i> Expiration month: <strong class="data">{{ datas.expiration_month }}</strong></div><br>
+                    <div><i class='fas fa-shield-alt'></i> CVV: <strong class="data">{{ datas.cvv }}</strong></div><br>
+                    <div>₸ Balance: <strong class="data"> {{ datas.balance }}</strong></div>
+            </div>
+            <div id="a"><a href="{% url 'editPayment' %}" > <button class="buttons" id="earn_money"><i class='fas fa-tenge'></i> PUT</button></a></div>
+        </div>
+        <div class="item">
+             <div class="strong"><strong class="header">History</strong></div>
+            <a style="text-decoration: none;" href="{% url 'purchase' %}">
+            <div class="p" style="width: 70%; margin: auto">
+                <strong class="data"><i class="fa fa-shopping-cart" aria-hidden="true"></i> See your all purchase</strong>
+            </div></a>
+            <div class="img"><img src="https://thumbs.dreamstime.com/b/empty-shopping-basket-wood-table-over-grocery-store-empty-shopping-basket-wood-table-over-grocery-store-supermarket-blur-125540582.jpg"></div><br>
+        </div>
+    {% else %}
+         <br>
+         <div class="item">
+            <div class="strong"><strong class="header">Create bank account</strong></div>
+            <p id="create_p" class="p">
+             If you want to create bank account, click <a href="{%  url 'creditcard' %}"><button class="create_button">this</button></a> button<br>
+            </p>
+         <p class="p">
+                Did you know how to save money on credit cards? Just follow our rules. Never pay fees to your Bank, let your Bank pay you
+         </p>
+         </div>
+
+    {% endif %}
+    </div>
+        <br>
+    <div class="back"><a href="{% url 'home' %}"><button>Back</button></a></div>
+{% endblock %}
+</body>
+</html>

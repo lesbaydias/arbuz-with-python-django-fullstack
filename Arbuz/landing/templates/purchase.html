@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Purchase</title>
+    <link href="../static/landing/purchase.css" rel="stylesheet">
+
+</head>
+<body>
+{% for items in list %}
+<span>Purchase:</span>
+{% for i in items %}
+<div>
+    <p>Name of the product:<strong> {{i.item.name}}</strong></p>
+    <p>Quantity of the product:<strong> {{i.quantity}}</strong></p>
+    <p>Price: <strong>{{i.subtotal}}</strong></p>
+</div>
+<br>
+<br>
+{% endfor %}
+<br>
+<br>
+
+{% endfor %}
+</body>
+</html>

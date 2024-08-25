@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="../static/landing/search.css" rel="stylesheet">
+
+    <div class="searching_for"><h1>Searching for: {{ name  }}</h1></div>
+<div class="grid-container">
+             {% for s in data %}
+                 <a href="{% url 'detail' s.pk %}"  class="a">
+                    <div class="itemss">
+                        <img class="img" src="{{ s.image_field.url }}" >
+                        <h5><p class="text-center">{{ s.name }}</p></h5>
+                        <strong class="strong">{{ s.price }} ₸</strong>
+                    </div>
+                 </a>
+             {%endfor %}
+        </div>
+
+{% endblock %}

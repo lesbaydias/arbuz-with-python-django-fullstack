@@ -1,0 +1,23 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+    <div id="mapid" style="height: 100vh"></div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+    var list = JSON.parse('{{ list|escapejs }}');
+    console.log(list)
+    var map = L.map('mapid').setView([list[0].lat, list[0].lon], 13);
+    for (let i = 0; i < list.length; i++) {
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+        }).addTo(map);
+
+        L.marker([list[i].lat, list[i].lon]).addTo(map);
+        }
+    </script>
+{% endblock %}

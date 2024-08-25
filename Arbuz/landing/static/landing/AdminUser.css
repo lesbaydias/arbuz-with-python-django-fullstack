@@ -1,0 +1,43 @@
+body{
+    background-image: url("https://klike.net/uploads/posts/2022-12/1672381132_7-16.jpg");
+    background-size: cover;
+}
+body> div > a > button{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: transparent;
+    margin-bottom: 5px;
+    background-color: limegreen;
+    box-shadow: 0 3px rgba(58, 87, 175, .75);
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    color: darkblue;
+    font-size: 16px;
+
+}
+button{
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+h1{
+    font-size: 50px;
+    margin-top: 120px;
+    width: 100%;
+    text-align: center;
+    color: darkblue;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+h2{
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: darkblue;
+}

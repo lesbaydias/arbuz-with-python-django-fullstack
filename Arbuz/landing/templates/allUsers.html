@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/landing/a.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div id="item1">Username</div>
+            <div id="item2">Last name</div>
+            <div id="item3">First name</div>
+            <div id="item4">Email</div>
+            <div id="item5">Data Joined</div>
+            <div id="item6">Last login</div>
+
+            {% for data in allForUsers %}
+                <div class="item1"><span class="curs">{{ data.username }}</span></div>
+                <div class="item2"><span class="curs">{{ data.last_name }}</span></div>
+                <div class="item3"><span class="curs">{{ data.first_name }}</span></div>
+                <div class="item4"><span class="curs">{{ data.email }}</span></div>
+                <div class="item5"><span class="curs">{{ data.date_joined }}</span></div>
+                <div class="item6"><span class="curs">{{ data.last_login }}</span></div>
+
+            {% endfor %}
+        </div>
+
+        <div class="items">
+            <a href="/AdminUser"><button id="back">Back</button></a>
+        </div>
+
+    </div>
+</body>
+</html>

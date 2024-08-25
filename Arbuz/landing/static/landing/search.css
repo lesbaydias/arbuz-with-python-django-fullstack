@@ -1,0 +1,55 @@
+.grid-container a{
+    text-decoration: none;
+}
+
+.itemss > h5{
+    font-size: 16px;
+    color: darkgrey;
+    padding-bottom: 10px;
+    margin-top: -30px;
+}
+.itemss > h5 > p{
+    font-family: "Segoe UI Black", serif;
+    color: #4f4f4f;
+    font-size: 18px;
+}
+.strong{
+    font-size: 18px;
+    color: #4f4f4f;
+}
+h1{
+    font-size: 3rem;
+    font-family: "Segoe UI Semibold", serif;
+    letter-spacing: 3px;
+    margin: 0 0 40px;
+}
+.searching_for{
+    text-align: center;
+}
+
+.grid-container {
+    width: 76%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+}
+.grid-container > .a{
+    margin: auto;
+}
+.grid-container > a > .itemss > img{
+    width: 190px;
+    height: 220px;
+    border-radius: 30px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.a .itemss{
+    border-radius: 30px;
+    margin: auto auto 30px;
+    padding: 10px;
+}
+
+
+
